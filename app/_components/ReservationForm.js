@@ -7,6 +7,7 @@ import Button from "./Button";
 function ReservationForm({maxCapacity, session, cabin}) {
   const {range} = useReservation()
 
+  
   const {user, guestId} = session
   const {id, regularPrice, discount} = cabin
   
@@ -17,6 +18,12 @@ function ReservationForm({maxCapacity, session, cabin}) {
   const status = "unconfirmed"
   const hasBreakfast = false
   const isPaid = false
+
+  function handleButton(){
+        console.log("clicked")
+            router.push("/cabins")
+    
+    }
 
   const bookingsData = {numNights, startDate: range.from, endDate: range.to, cabinPrice, totalPrice, status, hasBreakfast, extrasPrice, isPaid, guestId, cabinId : id}
   

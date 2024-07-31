@@ -2,6 +2,7 @@ import SelectCountry from "@/app/_components/SelectCountry";
 import { updateGuestAction } from "@/app/_lib/action";
 import {auth} from "@/app/_lib/auth"
 import { getGuest } from "@/app/_lib/data-service";
+import toast, { Toaster } from "react-hot-toast";
 
 export default async function Page() {
 
@@ -12,6 +13,38 @@ export default async function Page() {
 
   return (
     <div className="mx-20 my-8">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=""
+        containerStyle={{ margin: "18px" }}
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 5000,
+          style: {
+            background: "#363636",
+            color: "#fff",
+          },
+
+          // Default options for specific types
+          success: {
+            duration: 3000,
+            theme: {
+              primary: "green",
+              secondary: "black",
+            },
+          },
+          error: {
+            duration: 3000,
+            theme: {
+              primary: "red",
+              secondary: "black",
+            },
+          },
+        }}
+      />
       <h2 className="font-semibold text-2xl text-accent-400 mb-4">
         Update your guest profile
       </h2>
